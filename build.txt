@@ -1,0 +1,3 @@
+displayName = Boss Attack Faster With Less HP
+author = First Fractal
+version = 0.1
