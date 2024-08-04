@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,25 +7,30 @@ namespace BossAttackFasterWithLessHP
 {
     internal class BAFWLHPGlobalNPC : GlobalNPC
     {
-        //public static int[] bossParts = {NPCID.Spazmatism, NPCID.Retinazer, NPCID.TheDestroyerBody, NPCID.TheDestroyerTail, NPCID.GolemFistLeft, NPCID.GolemFistRight, NPCID.GolemHead, NPCID.GolemHeadFree, NPCID.MoonLordHand, NPCID.MoonLordHead, NPCID.MoonLordFreeEye };
-        public override void AI(NPC npc)
+        //this will run after the current AI process has already ran
+
+        public override void PostAI(NPC npc)
         {
-            //if (ffVar.Bosses.Boss.Contains(npc.type))
-            //if (npc.type == bossParts[10])
-            if (npc.type == NPCID.Plantera)
+            //check if the current npc is the EoC
+            if (npc.type == NPCID.EyeofCthulhu)
             {
-                ffFunc.Talk("AI[0]: " + npc.ai[0].ToString(), Microsoft.Xna.Framework.Color.White);
-                ffFunc.Talk("AI[1]: " + npc.ai[1].ToString(), Microsoft.Xna.Framework.Color.White);
-                ffFunc.Talk("AI[2]: " + npc.ai[2].ToString(), Microsoft.Xna.Framework.Color.White);
-                ffFunc.Talk("AI[3]: " + npc.ai[3].ToString(), Microsoft.Xna.Framework.Color.White);
-                //ffFunc.Talk("localAI[0]: " + npc.localAI[0].ToString(), Microsoft.Xna.Framework.Color.White);
-                //ffFunc.Talk("localAI[1]: " + npc.localAI[1].ToString(), Microsoft.Xna.Framework.Color.White);
-                //ffFunc.Talk("localAI[2]: " + npc.localAI[2].ToString(), Microsoft.Xna.Framework.Color.White);
-                //ffFunc.Talk("localAI[3]: " + npc.localAI[3].ToString(), Microsoft.Xna.Framework.Color.White);
-                ffFunc.Talk(npc.FullName, Microsoft.Xna.Framework.Color.Orange);
-                ffFunc.Talk("----------------------------------------------------", Microsoft.Xna.Framework.Color.White);
+                //get the current hp percentage in reverse, and round it to the last two decimal places
+                float HPpercentage = MathF.Round(1 - npc.GetLifePercent(), 2);
+
+                //set the min and max attack speed values;
+                double minATKspeed = 0;
+                double maxATKspeed = 3;
+
+                //convert the current HP percentage, to a value between min and max attack speed in float
+                float scaledValue = (float)(minATKspeed + HPpercentage * (maxATKspeed - minATKspeed));
+
+                //round it to the last two decimal places
+                scaledValue = MathF.Round(scaledValue, 2);
+
+                //add the scaled value to the npc timer to increase the attack speed
+                npc.ai[2] += scaledValue;
             }
-            base.AI(npc);
+            base.PostAI(npc);
         }
     }
 }
