@@ -42,14 +42,6 @@ namespace BossAttackFasterWithLessHP
                 ffFunc.Talk(HPpercentage.ToString(), Microsoft.Xna.Framework.Color.Green);
                 ffFunc.Talk(scaledValue.ToString(), Microsoft.Xna.Framework.Color.Red);
 
-
-                //add the scaled value to the npc timer to increase the attack speed
-                //for all boss parts that use AI[0] as timers
-                if (npc.type == NPCID.KingSlime || npc.type == NPCID.BrainofCthulhu)
-                {
-                    npc.ai[0] += scaledValue;
-                }
-
                 //for all boss parts that use AI[1] as timers
                 if (npc.type == NPCID.QueenBee || npc.type == NPCID.Deerclops || npc.type == NPCID.WallofFlesh ||
                     npc.type == NPCID.QueenSlimeBoss || npc.type == NPCID.Golem || npc.type == NPCID.GolemFistLeft ||
@@ -69,9 +61,6 @@ namespace BossAttackFasterWithLessHP
                     npc.ai[2] += scaledValue;
                 }
 
-                //for all boss parts that use AI[3] as timers
-                if (npc.type == NPCID.BrainofCthulhu) npc.ai[3] += scaledValue;
-
                 //increase the firerate of fireball and lasers for the twins
                 if (npc.ai[1] == 0 && (npc.type == NPCID.Spazmatism || npc.type == NPCID.Retinazer))
                 {
@@ -79,7 +68,10 @@ namespace BossAttackFasterWithLessHP
                 }
 
                 //for all boss parts that use localAI[1] as timers
-                if (npc.type == NPCID.WallofFleshEye || npc.type == NPCID.Plantera) npc.localAI[1] += scaledValue; 
+                if (npc.type == NPCID.WallofFleshEye || npc.type == NPCID.Plantera || npc.type == NPCID.KingSlime || npc.type == NPCID.BrainofCthulhu && npc.type == NPCID.Retinazer && npc.type == NPCID.Plantera)
+                {
+                    npc.localAI[1] += scaledValue;
+                }
 
                 ffFunc.Talk(npc.TypeName, Microsoft.Xna.Framework.Color.Orange);
                 ffFunc.Talk("----------------------------------------------------", Microsoft.Xna.Framework.Color.White);

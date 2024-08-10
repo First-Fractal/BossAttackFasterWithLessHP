@@ -1,7 +1,7 @@
-✓ King Slime: AI[0] For Jump and AI[2] For Teleport
+King Slime: LocalAI[0]
 ✓ EoC: AI[2]
 EoW: N/A
-BoC: AI[0] for teleport fade and AI[3] For Phase Two teleport fade
+✓ BoC: LocalAI[1]
 Queen Bee: N/A
 ✓ Skeletron: AI[2] for in and out of spinning move
 ✓ Deerclops: AI[1]
@@ -11,16 +11,16 @@ Queen Bee: N/A
 ✓ Queen Slime: AI[1] 
 Destroyer: N/A
 ✓ Prime: AI[2]
-Spaz: AI[2] and AI[3] (if AI[1] = 0 for fireball shoot in phase 1)
-Ret: AI[2] and AI[3] (if AI[1] = 0 for lazer shoot in phase 1)
-Plantera: localAI[1]
-Golem: AI[1]
-Golem Fist Left: AI[1]
-Golem Fist Right: AI[1]
-Golem Head: AI[1] (fireball) and AI[2] (lazer)
-Golem Head Free: AI[1] (fireball) and AI[2] (lazer)
+✓ Spaz: AI[2] and AI[3] (if AI[1] = 0 for fireball shoot in phase 1)
+✓ Ret: AI[2] and AI[3] (if AI[1] = 0 for lazer shoot in phase 1) and LocalAI[1]
+✓ Plantera: localAI[1]
+✓ Golem: AI[1]
+✓ Golem Fist Left: AI[1]
+✓ Golem Fist Right: AI[1]
+✓ Golem Head: AI[1] (fireball) and AI[2] (lazer)
+✓ Golem Head Free: AI[1] (fireball) and AI[2] (lazer)
 Empress: AI[1]
-Duke: AI[2]
+✓ Duke: AI[2]
 LC: AI[1]
 ML Head:AI[1] and AI[2] (deathray turn speed)
 ML Hand: AI[1]
