@@ -1,8 +1,8 @@
-King Slime: LocalAI[0]
+✓ King Slime: LocalAI[0]
 ✓ EoC: AI[2]
 EoW: N/A
 ✓ BoC: LocalAI[1]
-Queen Bee: N/A
+✓ Queen Bee: AI[1] if AI[0] == 1 or 3
 ✓ Skeletron: AI[2] for in and out of spinning move
 ✓ Deerclops: AI[1]
 ✓ WoF: AI[1]

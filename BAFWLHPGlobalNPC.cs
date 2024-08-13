@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
@@ -50,14 +51,14 @@ namespace BossAttackFasterWithLessHP
                     npc.type == NPCID.MoonLordHand || npc.type == NPCID.MoonLordFreeEye)
                 {
                     //dont break eol's ai when she goes into phase 2
-                    if (npc.type == NPCID.HallowBoss && npc.ai[0] != 10)
-                    {
-                        npc.ai[1] += scaledValue;
-                    }
+                    if (npc.type == NPCID.HallowBoss && npc.ai[0] == 10) return;
+                    //make queen bee only affect the states that used the timer
+                    if (npc.type == NPCID.QueenBee && (npc.ai[0] != 1 && npc.ai[0] != 3)) return;
+                    npc.ai[1] += scaledValue;
                 }
 
                 //for all boss parts that use AI[2] as timers
-                if (npc.type == NPCID.KingSlime || npc.type == NPCID.EyeofCthulhu || npc.type == NPCID.SkeletronHead ||
+                if (npc.type == NPCID.EyeofCthulhu || npc.type == NPCID.SkeletronHead ||
                     npc.type == NPCID.SkeletronPrime || npc.type == NPCID.Spazmatism || npc.type == NPCID.Retinazer ||
                     npc.type == NPCID.GolemHead || npc.type == NPCID.GolemHeadFree || npc.type == NPCID.DukeFishron ||
                     npc.type == NPCID.MoonLordHead)
