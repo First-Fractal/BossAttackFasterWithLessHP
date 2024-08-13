@@ -9,7 +9,7 @@ EoW: N/A
 ✓ WoF Eyes: LocalAI[1]
 
 ✓ Queen Slime: AI[1] 
-Destroyer: N/A
+✓ Destroyer Body: LocalAI[0] 
 ✓ Prime: AI[2]
 ✓ Spaz: AI[2] and AI[3] (if AI[1] = 0 for fireball shoot in phase 1)
 ✓ Ret: AI[2] and AI[3] (if AI[1] = 0 for lazer shoot in phase 1) and LocalAI[1]

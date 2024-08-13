@@ -1,5 +1,4 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
-using System;
+﻿using System;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
@@ -10,7 +9,7 @@ namespace BossAttackFasterWithLessHP
     internal class BAFWLHPGlobalNPC : GlobalNPC
     {
         //list of all the boss parts to be affected by the system
-        static int[] fastBossParts = { NPCID.KingSlime, NPCID.EyeofCthulhu, NPCID.BrainofCthulhu, NPCID.QueenBee, NPCID.SkeletronHead, NPCID.Deerclops, NPCID.WallofFlesh, NPCID.WallofFleshEye, NPCID.QueenSlimeBoss, NPCID.SkeletronPrime, NPCID.Spazmatism, NPCID.Retinazer, NPCID.Plantera, NPCID.Golem, NPCID.GolemFistLeft, NPCID.GolemFistRight, NPCID.GolemHead, NPCID.GolemHeadFree, NPCID.HallowBoss, NPCID.DukeFishron, NPCID.CultistBoss, NPCID.MoonLordHead, NPCID.MoonLordHand, NPCID.MoonLordFreeEye };
+        static int[] fastBossParts = { NPCID.KingSlime, NPCID.EyeofCthulhu, NPCID.BrainofCthulhu, NPCID.QueenBee, NPCID.SkeletronHead, NPCID.Deerclops, NPCID.WallofFlesh, NPCID.WallofFleshEye, NPCID.QueenSlimeBoss, NPCID.TheDestroyerBody, NPCID.SkeletronPrime, NPCID.Spazmatism, NPCID.Retinazer, NPCID.Plantera, NPCID.Golem, NPCID.GolemFistLeft, NPCID.GolemFistRight, NPCID.GolemHead, NPCID.GolemHeadFree, NPCID.HallowBoss, NPCID.DukeFishron, NPCID.CultistBoss, NPCID.MoonLordHead, NPCID.MoonLordHand, NPCID.MoonLordFreeEye };
 
         //this will run after the current AI process has already ran
         public override void PostAI(NPC npc)
@@ -18,15 +17,6 @@ namespace BossAttackFasterWithLessHP
             //check if the current npc is the the list
             if (fastBossParts.Contains(npc.type))
             {
-                //ffFunc.Talk("AI[0]: " + npc.ai[0].ToString(), Microsoft.Xna.Framework.Color.White);
-                //ffFunc.Talk("AI[1]: " + npc.ai[1].ToString(), Microsoft.Xna.Framework.Color.White);
-                //ffFunc.Talk("AI[2]: " + npc.ai[2].ToString(), Microsoft.Xna.Framework.Color.White);
-                //ffFunc.Talk("AI[3]: " + npc.ai[3].ToString(), Microsoft.Xna.Framework.Color.White);
-                //ffFunc.Talk("localAI[0]: " + npc.localAI[0].ToString(), Microsoft.Xna.Framework.Color.White);
-                //ffFunc.Talk("localAI[1]: " + npc.localAI[1].ToString(), Microsoft.Xna.Framework.Color.White);
-                //ffFunc.Talk("localAI[2]: " + npc.localAI[2].ToString(), Microsoft.Xna.Framework.Color.White);
-                //ffFunc.Talk("localAI[3]: " + npc.localAI[3].ToString(), Microsoft.Xna.Framework.Color.White);
-
                 //get the current hp percentage in reverse, and round it to the last two decimal places
                 float HPpercentage = MathF.Round(1 - npc.GetLifePercent(), 2);
 
@@ -72,16 +62,17 @@ namespace BossAttackFasterWithLessHP
                     npc.ai[3] += scaledValue;
                 }
 
+                //for the destroyer body that has a timer
+                if (npc.type == NPCID.TheDestroyerBody) npc.localAI[0] += scaledValue;
+
                 //for all boss parts that use localAI[1] as timers
                 if (npc.type == NPCID.WallofFleshEye || npc.type == NPCID.Plantera || npc.type == NPCID.KingSlime || npc.type == NPCID.BrainofCthulhu && npc.type == NPCID.Retinazer && npc.type == NPCID.Plantera)
                 {
                     npc.localAI[1] += scaledValue;
                 }
 
-                ffFunc.Talk(npc.TypeName, Microsoft.Xna.Framework.Color.Orange);
+                ffFunc.Talk(NPCID.Search.GetName(npc.type), Microsoft.Xna.Framework.Color.Orange);
                 ffFunc.Talk("----------------------------------------------------", Microsoft.Xna.Framework.Color.White);
-
-
             }
             base.PostAI(npc);
         }
