@@ -49,7 +49,11 @@ namespace BossAttackFasterWithLessHP
                     npc.type == NPCID.HallowBoss || npc.type == NPCID.CultistBoss || npc.type == NPCID.MoonLordHead ||
                     npc.type == NPCID.MoonLordHand || npc.type == NPCID.MoonLordFreeEye)
                 {
-                    npc.ai[1] += scaledValue;
+                    //dont break eol's ai when she goes into phase 2
+                    if (npc.type == NPCID.HallowBoss && npc.ai[0] != 10)
+                    {
+                        npc.ai[1] += scaledValue;
+                    }
                 }
 
                 //for all boss parts that use AI[2] as timers

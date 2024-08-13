@@ -19,9 +19,9 @@ Destroyer: N/A
 ✓ Golem Fist Right: AI[1]
 ✓ Golem Head: AI[1] (fireball) and AI[2] (lazer)
 ✓ Golem Head Free: AI[1] (fireball) and AI[2] (lazer)
-Empress: AI[1]
+✓ Empress: AI[1] (except if AI[0] == 10)
 ✓ Duke: AI[2]
-LC: AI[1]
+✓ LC: AI[1]
 ML Head:AI[1] and AI[2] (deathray turn speed)
 ML Hand: AI[1]
 ML Free Eye: AI[1]
