@@ -1,6 +1,6 @@
 ✓ King Slime: LocalAI[0]
 ✓ EoC: AI[2]
-EoW: N/A
+✓ EoW: N/A
 ✓ BoC: LocalAI[1]
 ✓ Queen Bee: AI[1] if AI[0] == 1 or 3
 ✓ Skeletron: AI[2] for in and out of spinning move

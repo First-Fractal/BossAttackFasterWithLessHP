@@ -445,7 +445,7 @@ namespace BossAttackFasterWithLessHP
     public class ffFunc
     {
         //function for saying something in the chat
-        public static void Talk(string message, Color color)
+        public static void Talk(string message, Color color, bool console=true)
         {
             //check if the player is in singleplayer of multiplayer
             if (Main.netMode == NetmodeID.SinglePlayer)
@@ -458,6 +458,9 @@ namespace BossAttackFasterWithLessHP
                 //Brodcast a message to everyone in the server
                 ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(message), color);
             }
+            
+            //output it to the console as well
+            if (console) Console.WriteLine(message);
         }
 
         //function that will convert human time to terraria ticks
