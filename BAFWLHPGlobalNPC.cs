@@ -92,8 +92,7 @@ namespace BossAttackFasterWithLessHP
                 //for all boss parts that use AI[2] as timers
                 if (npc.type == NPCID.EyeofCthulhu || npc.type == NPCID.SkeletronHead ||
                     npc.type == NPCID.SkeletronPrime || npc.type == NPCID.Spazmatism || npc.type == NPCID.Retinazer ||
-                    npc.type == NPCID.GolemHead || npc.type == NPCID.GolemHeadFree || npc.type == NPCID.DukeFishron ||
-                    npc.type == NPCID.MoonLordHead)
+                    npc.type == NPCID.GolemHead || npc.type == NPCID.GolemHeadFree || npc.type == NPCID.DukeFishron)
                 {
                     npc.ai[2] += scaledValue;
                 }
@@ -124,9 +123,6 @@ namespace BossAttackFasterWithLessHP
                 {
                     npc.localAI[1] += scaledValue;
                 }
-
-                ffFunc.Talk(NPCID.Search.GetName(npc.type), Microsoft.Xna.Framework.Color.Orange);
-                ffFunc.Talk("----------------------------------------------------", Microsoft.Xna.Framework.Color.White);
             }
             base.PostAI(npc);
         }
