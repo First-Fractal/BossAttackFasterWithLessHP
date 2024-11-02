@@ -51,6 +51,9 @@ namespace BossAttackFasterWithLessHP
                 }
             }
 
+            //set the EoW Max hp to the current hp count if its bigger
+            if (hp > EoWMaxHP) EoWMaxHP = hp;
+
             //return the hp
             return hp;
         }
@@ -118,6 +121,7 @@ namespace BossAttackFasterWithLessHP
                     //speed up the EoW based on the hp % and current velocity
                     npc.position += (npc.velocity * scaledValue);
                 }
+
                 //for all boss parts that use localAI[1] as timers
                 if (npc.type == NPCID.WallofFleshEye || npc.type == NPCID.Plantera || npc.type == NPCID.KingSlime || npc.type == NPCID.BrainofCthulhu && npc.type == NPCID.Retinazer && npc.type == NPCID.Plantera)
                 {
