@@ -4,13 +4,14 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
+using Microsoft.Xna.Framework;
 
 namespace BossAttackFasterWithLessHP
 {
     internal class BAFWLHPGlobalNPC : GlobalNPC
     {
         //list of all the boss parts to be affected by the system
-        static int[] fastBossParts = { NPCID.KingSlime, NPCID.EyeofCthulhu, NPCID.EaterofWorldsHead, NPCID.EaterofWorldsBody, NPCID.EaterofWorldsTail, NPCID.BrainofCthulhu, NPCID.QueenBee, NPCID.SkeletronHead, NPCID.Deerclops, NPCID.WallofFlesh, NPCID.WallofFleshEye, NPCID.QueenSlimeBoss, NPCID.TheDestroyerBody, NPCID.SkeletronPrime, NPCID.Spazmatism, NPCID.Retinazer, NPCID.Plantera, NPCID.Golem, NPCID.GolemFistLeft, NPCID.GolemFistRight, NPCID.GolemHead, NPCID.GolemHeadFree, NPCID.HallowBoss, NPCID.DukeFishron, NPCID.CultistBoss, NPCID.MoonLordHead, NPCID.MoonLordHand, NPCID.MoonLordFreeEye };
+        static int[] fastBossParts = { NPCID.KingSlime, NPCID.EyeofCthulhu, NPCID.EaterofWorldsHead, NPCID.EaterofWorldsBody, NPCID.EaterofWorldsTail, NPCID.BrainofCthulhu, NPCID.QueenBee, NPCID.SkeletronHead, NPCID.Deerclops, NPCID.WallofFlesh, NPCID.WallofFleshEye, NPCID.QueenSlimeBoss, NPCID.TheDestroyerBody, NPCID.SkeletronPrime, NPCID.Spazmatism, NPCID.Retinazer, NPCID.Plantera, NPCID.Golem, NPCID.GolemFistLeft, NPCID.GolemFistRight, NPCID.GolemHead, NPCID.GolemHeadFree, NPCID.HallowBoss, NPCID.DukeFishron, NPCID.MoonLordHead, NPCID.MoonLordHand, NPCID.MoonLordFreeEye };
 
         //function for scaleing a value bassed on the hp values
         public float scaleValueBassedOnHP(float hp, float maxHP)
@@ -82,7 +83,7 @@ namespace BossAttackFasterWithLessHP
                 if (npc.type == NPCID.QueenBee || npc.type == NPCID.Deerclops || npc.type == NPCID.WallofFlesh ||
                     npc.type == NPCID.QueenSlimeBoss || npc.type == NPCID.Golem || npc.type == NPCID.GolemFistLeft ||
                     npc.type == NPCID.GolemFistRight || npc.type == NPCID.GolemHead || npc.type == NPCID.GolemHeadFree ||
-                    npc.type == NPCID.HallowBoss || npc.type == NPCID.CultistBoss || npc.type == NPCID.MoonLordHead ||
+                    npc.type == NPCID.HallowBoss || npc.type == NPCID.MoonLordHead ||
                     npc.type == NPCID.MoonLordHand || npc.type == NPCID.MoonLordFreeEye)
                 {
                     //dont break eol's ai when she goes into phase 2
@@ -114,7 +115,7 @@ namespace BossAttackFasterWithLessHP
                 {
                     //get the current hp of the EoW
                     int hp = getEoWTotalHP();
-                    
+
                     //scale the value based on the current hp left
                     scaledValue = scaleValueBassedOnHP(hp, EoWMaxHP);
 
@@ -128,6 +129,7 @@ namespace BossAttackFasterWithLessHP
                     npc.localAI[1] += scaledValue;
                 }
             }
+
             base.PostAI(npc);
         }
     }
