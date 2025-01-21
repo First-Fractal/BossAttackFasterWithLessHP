@@ -1,3 +1,6 @@
 Boss Attack Faster With Less HP is a mod where the boss's internal attack timer will speed up over time. 
 At 100% HP, the attack timer speed would be at 100% speed. And at 0% HP, the attack timer speed would be at 300% speed.
 This mod will only affect the vanilla bosses that aren't minibosses or event bosses. 
+However, the mod won't affect the Eater of Worlds since he dosn't have differnt moves to switch to.
+The mod will also not affect the Lunatic Cultist because it will either make him despawn or 
+evenually stuck in his invincible phase.

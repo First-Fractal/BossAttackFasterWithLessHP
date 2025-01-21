@@ -4,7 +4,7 @@ At 100% HP, the attack timer speed would be at 100% speed. And at 0% HP, the att
 This mod will only affect the vanilla bosses that aren't minibosses or event bosses. 
 
 # Steam Workshop
-[Download it here](https://steamcommunity.com/sharedfiles/filedetails/?id=2952321754)
+[Download it here](https://steamcommunity.com/sharedfiles/filedetails/?id=3412093898)
 
 # Change Log
 v 1.0: Relased the mod.
